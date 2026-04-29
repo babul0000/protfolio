@@ -26,7 +26,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-6 md:space-y-10" // স্পেসিং কিছুটা বাড়ানো হয়েছে ক্লিনিং লুকের জন্য
+          className="space-y-6 md:space-y-10"
         >
           <div className="space-y-4">
             {/* Badge - Smaller & Crisper */}
@@ -43,7 +43,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline - Reduced size for elegant look */}
-            <h1 className="text-2xl md:text-4xl lg:text-4xl font-black leading-[1.1] tracking-tight text-white">
+            <h1 className="text-4xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight text-white">
               Building <span className="text-emerald-400 italic">Smart</span> <br />
               <span className="flex items-center gap-3">
                 <span className="h-[1px] w-8 md:w-12 bg-emerald-500/30 hidden sm:block" />
@@ -57,6 +57,8 @@ export default function Hero() {
               I help startups turn ideas into functional, <span className="text-emerald-400/80">performance-focused</span> digital experiences that users love to navigate.
             </p>
           </div>
+
+
 
           {/* Action Buttons - Slightly smaller but impactful */}
           <div className="flex flex-wrap items-center gap-4">
