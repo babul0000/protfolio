@@ -43,7 +43,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Headline - Reduced size for elegant look */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-white">
+            <h1 className="text-2xl md:text-4xl lg:text-4xl font-black leading-[1.1] tracking-tight text-white">
               Building <span className="text-emerald-400 italic">Smart</span> <br />
               <span className="flex items-center gap-3">
                 <span className="h-[1px] w-8 md:w-12 bg-emerald-500/30 hidden sm:block" />
@@ -118,7 +118,7 @@ export default function Hero() {
               <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent backdrop-blur-sm">
                 <div className="flex justify-between items-end">
                   <div>
-                    <h3 className="text-2xl font-bold">Md Babul Hossan</h3>
+                    <h3 className="text-xl font-bold">Md Babul Hossan</h3>
                     <p className="text-emerald-400 font-mono text-xs tracking-widest uppercase mt-1">Full-Stack Architect</p>
                   </div>
                   <div className="px-4 py-2 bg-white/10 rounded-xl border border-white/10 text-[10px] font-black uppercase">

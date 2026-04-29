@@ -5,49 +5,42 @@ import { Briefcase, GraduationCap } from 'lucide-react'
 
 const experience = [
   {
-    title: 'Junior Full Stack Developer',
-    org: 'TechNova Solutions',
-    period: '2024 — Present',
-    desc: 'Building React-based dashboards, REST APIs with Node.js/Express, and MongoDB databases for SaaS clients. Implemented CI/CD pipelines and improved page load by 40%.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    title: 'Frontend Developer (Self-Learning Journey)',
+    org: 'Personal Projects',
+    period: '2025 — Present',
+    desc: 'Building modern web applications using React, Next.js, and Tailwind CSS. Focused on UI/UX, responsive design, and performance optimization while working on real-world portfolio projects.',
+    tags: ['React', 'Next.js', 'Tailwind'],
   },
   {
-    title: 'Freelance Web Developer',
-    org: 'Self-Employed',
-    period: '2023 — 2024',
-    desc: 'Designed and deployed 8+ websites for local businesses using Next.js and Tailwind CSS. Handled full project lifecycle from wireframing to deployment on Vercel.',
-    tags: ['Next.js', 'Tailwind', 'Vercel'],
-  },
-  {
-    title: 'Sample Technician → Web Developer',
-    org: 'ACI Pharmaceuticals Ltd.',
-    period: '2021 — 2023',
-    desc: 'Served as Sample Technician while self-teaching web development. Built internal lab tracking tool using HTML/CSS/JS that reduced data entry errors by 25%.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    title: 'Sample Technician',
+    org: 'Garments Industry',
+    period: '2018 — Present',
+    desc: '8+ years experience in garments sector. Developed strong problem-solving skills, attention to detail, and workflow management which now helps in software development.',
+    tags: ['Quality Control', 'Problem Solving', 'Discipline'],
   },
 ]
 
 const education = [
   {
     title: 'Full Stack Web Development',
-    org: 'Programming Hero Bootcamp',
-    period: '2022 — 2023',
-    desc: 'Intensive bootcamp covering MERN stack, REST APIs, authentication, and deployment. Completed 15+ projects and collaborative team assignments.',
-    tags: ['MERN', 'JWT', 'Express'],
+    org: 'Programming Hero',
+    period: '2025 — present',
+    desc: 'Learned MERN stack including React, Node.js, Express, MongoDB, authentication, and deployment. Built multiple real-world projects.',
+    tags: ['MERN', 'Firebase', 'REST API'],
   },
   {
-    title: 'B.Sc. in Biochemistry',
-    org: 'University of Dhaka',
-    period: '2017 — 2021',
-    desc: 'Major in Biochemistry with laboratory research experience. Developed systematic analytical skills and scientific documentation methodologies.',
-    tags: ['Research', 'Analysis', 'Data'],
+    title: 'HSC (commerce)',
+    org: 'Satkhira Govt College',
+    period: '2022',
+    desc: 'Completed higher secondary education in commerce with strong foundation in economics and  business.',
+    tags: ['Commerce', 'Math', 'Business'],
   },
   {
-    title: 'HSC (Science)',
-    org: 'Dhaka College',
-    period: '2015 — 2017',
-    desc: 'Higher Secondary Certificate in Science track. Strong foundation in mathematics and physics.',
-    tags: ['Math', 'Physics', 'Science'],
+    title: 'SSC (commerce)',
+    org: 'Kadakati Arar High School',
+    period: '2019',
+    desc: 'Completed secondary education in commerce.',
+    tags: ['commerce', 'Math', 'Business'],
   },
 ]
 
@@ -57,35 +50,49 @@ function TimelineCard({ item, index, color }) {
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ delay: index * 0.1, duration: 0.6 }}
       className="relative pl-8"
     >
-      {/* timeline dot */}
+      {/* dot */}
       <div
-        className="absolute left-0 top-3 w-3 h-3 rounded-full border-2 shadow-glow-sm z-10"
-        style={{ borderColor: color, background: '#090c0f', boxShadow: `0 0 12px ${color}60` }}
+        className="absolute left-0 top-3 w-3 h-3 rounded-full border-2"
+        style={{
+          borderColor: color,
+          background: '#090c0f',
+          boxShadow: `0 0 12px ${color}60`,
+        }}
       />
 
       <motion.div
-        whileHover={{ borderColor: `${color}40`, boxShadow: `0 4px 30px ${color}15` }}
+        whileHover={{ borderColor: `${color}40` }}
         className="glass rounded-2xl p-5 border border-white/8 transition-all duration-300"
       >
         <div className="flex flex-wrap gap-2 justify-between items-start mb-2">
           <div>
             <h4 className="text-white font-bold text-sm">{item.title}</h4>
-            <p className="text-slate-400 text-xs mt-0.5 font-medium">{item.org}</p>
+            <p className="text-slate-400 text-xs mt-0.5">{item.org}</p>
           </div>
+
           <span
             className="text-[10px] font-mono px-2 py-1 rounded-full border"
-            style={{ color, borderColor: `${color}30`, background: `${color}10` }}
+            style={{
+              color,
+              borderColor: `${color}30`,
+              background: `${color}10`,
+            }}
           >
             {item.period}
           </span>
         </div>
-        <p className="text-slate-500 text-xs leading-relaxed mb-3">{item.desc}</p>
+
+        <p className="text-slate-500 text-xs mb-3">{item.desc}</p>
+
         <div className="flex flex-wrap gap-1.5">
           {item.tags.map((t) => (
-            <span key={t} className="text-[10px] px-2 py-0.5 rounded-full glass border border-white/10 text-slate-400">
+            <span
+              key={t}
+              className="text-[10px] px-2 py-0.5 rounded-full glass border border-white/10 text-slate-400"
+            >
               {t}
             </span>
           ))}
@@ -99,21 +106,26 @@ export default function Qualification() {
   return (
     <section id="qualification" className="section-padding">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">Timeline</span>
+          <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
+            Timeline
+          </span>
+
           <h2 className="text-3xl md:text-4xl font-black text-white mt-3">
-            Experience &{' '}
-            <span className="gradient-text">Education</span>
+            Experience & <span className="gradient-text">Education</span>
           </h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Experience */}
+
+          {/* EXPERIENCE */}
           <div>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
@@ -122,7 +134,6 @@ export default function Qualification() {
               <h3 className="text-white font-bold text-lg">Experience</h3>
             </div>
 
-            {/* timeline line */}
             <div className="relative flex flex-col gap-6">
               <div className="absolute left-1.5 top-4 bottom-4 w-px timeline-line opacity-30" />
               {experience.map((item, i) => (
@@ -131,7 +142,7 @@ export default function Qualification() {
             </div>
           </div>
 
-          {/* Education */}
+          {/* EDUCATION */}
           <div>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-9 h-9 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center">
@@ -147,6 +158,7 @@ export default function Qualification() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
