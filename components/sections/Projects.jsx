@@ -2,56 +2,70 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react'
+import Image from 'next/image'
+import tilesImg from '@/app/assets/tiles-gallery.png'
+import pixgenImg from '@/app/assets/pixgen.png'
+import dragonImg from '@/app/assets/dragon-news.png'
+import digitoolsImg from '@/app/assets/digitools.png'
+import issueTrackerImg from '@/app/assets/issue-tracker.png'
 
 const projects = [
   {
-    title: 'MediTrack Lab Portal',
-    desc: 'A full-featured laboratory sample tracking web app. Digitizes sample intake, status updates, and report generation. Reduced manual errors by 60% for a 50-person team.',
-    tags: ['Next.js', 'MongoDB', 'Tailwind', 'Node.js'],
+    title: 'Tiles Galary',
+    desc: 'Developed a fully functional tiles gallery application. Implemented responsive design, interactive UI, and smooth navigation to showcase tile products effectively.',
+    tags: ['Next.js', 'Tailwind CSS', 'java script', 'mongodb'],
     color: '#10b981',
-    emoji: '🧪',
+    emoji: '🖼️',
     gradient: 'from-emerald-500/10 to-teal-500/5',
+    image: tilesImg,
+    liveLink: 'https://tiles-galary-a-8.vercel.app/',
+    repoLink: 'https://github.com/babul0000/tiles-galary-a-8',
   },
   {
-    title: 'ShopWave E-Commerce',
-    desc: 'Full-stack e-commerce platform with product listings, cart, Stripe checkout, and admin dashboard. Handles 500+ SKUs with real-time inventory updates.',
-    tags: ['React', 'Express', 'Stripe', 'PostgreSQL'],
-    color: '#6366f1',
-    emoji: '🛒',
-    gradient: 'from-indigo-500/10 to-purple-500/5',
-  },
-  {
-    title: 'DevBoard Task Manager',
-    desc: 'Kanban-style project management tool with drag-and-drop, real-time collaboration via WebSockets, and team permissions. Used daily by 3 development teams.',
-    tags: ['React', 'Socket.io', 'Redis', 'JWT'],
-    color: '#f59e0b',
-    emoji: '📋',
-    gradient: 'from-amber-500/10 to-orange-500/5',
-  },
-  {
-    title: 'WeatherPulse Dashboard',
-    desc: 'Location-aware weather analytics app with 7-day forecasts, interactive charts, and air quality metrics. Integrates OpenWeatherMap and MapBox APIs.',
-    tags: ['Next.js', 'Chart.js', 'REST API', 'Tailwind'],
+    title: 'Pixgen',
+    desc: 'An AI-powered creative image generator tool with a modern glassmorphism UI, offering dynamic tools for creative professionals.',
+    tags: ['Next.js', 'Tailwind CSS', 'Mongodb'],
     color: '#38bdf8',
-    emoji: '🌤️',
+    emoji: '🎨',
     gradient: 'from-sky-500/10 to-cyan-500/5',
+    image: pixgenImg,
+    liveLink: 'https://pixgen-b.vercel.app/',
+    repoLink: 'https://github.com/babul0000/pixgen-s-8-2',
   },
   {
-    title: 'BlogForge CMS',
-    desc: 'Headless CMS with markdown editor, SEO tools, scheduled publishing, and social preview cards. Built for content creators with a focus on writing UX.',
-    tags: ['Next.js', 'MDX', 'Prisma', 'Vercel'],
-    color: '#a78bfa',
-    emoji: '✍️',
+    title: 'The Dragon News',
+    desc: 'A full-stack dynamic news portal application. Features category-wise news rendering, user authentication, and responsive layout for a smooth reading experience.',
+    tags: ['React', 'Firebase', 'Tailwind CSS'],
+    color: '#f59e0b',
+    emoji: '📰',
+    gradient: 'from-amber-500/10 to-orange-500/5',
+    image: dragonImg,
+    liveLink: 'https://the-dragan-news-b.vercel.app/category/01',
+    repoLink: 'https://github.com/babul0000/The-dragan-news-m-46',
+  },
+  {
+    title: 'DigiTools Platform',
+    desc: 'A comprehensive digital tools platform featuring an interactive dashboard, diverse utility applications, and a smooth user experience designed for productivity.',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    color: '#8b5cf6',
+    emoji: '🛠️',
     gradient: 'from-violet-500/10 to-purple-500/5',
+    image: digitoolsImg,
+    liveLink: 'https://digitools-platform-assignment-babul.netlify.app/',
+    repoLink: 'https://github.com/babul0000/B13-A6-DigiTools-Platform-6',
   },
   {
-    title: 'FitPulse Tracker',
-    desc: 'Fitness tracking app with workout logging, progress charts, nutrition macros calculator, and weekly streak system. Features a mobile-first responsive design.',
-    tags: ['React Native', 'Expo', 'Firebase', 'Redux'],
-    color: '#f43f5e',
-    emoji: '💪',
-    gradient: 'from-rose-500/10 to-pink-500/5',
+    title: 'GitHub Issue Tracker',
+    desc: 'A dedicated issue tracking interface for GitHub repositories. Streamlines bug reporting, task tracking, and developer workflows efficiently.',
+    tags: ['JavaScript', 'HTML5', 'CSS3'],
+    color: '#38bdf8',
+    emoji: '🐛',
+    gradient: 'from-sky-500/10 to-cyan-500/5',
+    image: issueTrackerImg,
+    liveLink: 'https://github-issue-tracker-babul.netlify.app/home.html',
+    repoLink: 'https://github.com/babul0000/assingment-5--Issues-Tracker',
   },
+
 ]
 
 function ProjectCard({ project, index }) {
@@ -66,7 +80,20 @@ function ProjectCard({ project, index }) {
     >
       {/* Card image area */}
       <div className={`h-44 bg-gradient-to-br ${project.gradient} relative overflow-hidden flex items-center justify-center`}>
-        <span className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500">{project.emoji}</span>
+        {project.image ? (
+          <>
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700"
+            />
+            {/* Dark overlay for better text readability and styling */}
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+          </>
+        ) : (
+          <span className="text-7xl opacity-60 group-hover:scale-110 transition-transform duration-500">{project.emoji}</span>
+        )}
 
         {/* Glow on hover */}
         <div
@@ -76,20 +103,30 @@ function ProjectCard({ project, index }) {
 
         {/* Corner action buttons */}
         <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 rounded-full glass border border-white/20 flex items-center justify-center text-white"
-          >
-            <Github size={13} />
-          </motion.a>
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="w-8 h-8 rounded-full glass border border-white/20 flex items-center justify-center text-white"
-          >
-            <ExternalLink size={13} />
-          </motion.a>
+          {project.repoLink && (
+            <motion.a
+              href={project.repoLink}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.1 }}
+              className="w-8 h-8 rounded-full glass border border-white/20 flex items-center justify-center text-white hover:bg-white/10"
+              title="View Source Code"
+            >
+              <Github size={13} />
+            </motion.a>
+          )}
+          {project.liveLink && (
+            <motion.a
+              href={project.liveLink}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.1 }}
+              className="w-8 h-8 rounded-full glass border border-white/20 flex items-center justify-center text-white hover:bg-white/10"
+              title="View Live Site"
+            >
+              <ExternalLink size={13} />
+            </motion.a>
+          )}
         </div>
 
         {/* glowing border on hover */}
