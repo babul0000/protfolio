@@ -7,14 +7,14 @@ const socials = [
   { Icon: Github, href: 'https://github.com', label: 'GitHub' },
   { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
   { Icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { Icon: Mail, href: 'mailto:babul@example.com', label: 'Email' },
+  { Icon: Mail, href: 'babulhossan.info@gmail.com', label: 'Email' },
 ]
 
 const footerLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: 'mailto:babul@example.com' },
+  { label: 'Contact', href: 'babulhossan.info@fmail.com' },
 ]
 
 export default function Footer() {
