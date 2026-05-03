@@ -1,109 +1,113 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react'
+import { Github, Linkedin, Twitter, Mail, MapPin, Send } from 'lucide-react'
 
 const socials = [
   { Icon: Github, href: 'https://github.com/babul0000', label: 'GitHub' },
   { Icon: Linkedin, href: 'https://www.linkedin.com/in/babul-hossan-09932837a/', label: 'LinkedIn' },
   { Icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { Icon: Mail, href: 'babulhossan.info@gmail.com', label: 'Email' },
 ]
 
-const footerLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: 'babulhossan.info@fmail.com' },
-]
-
-export default function Footer() {
+export default function ContactSection() {
   return (
-    <footer id="footer" className="border-t border-white/8">
-      {/* CTA band */}
-      <div className="bg-gradient-to-r from-[#0f1318] via-emerald-950/20 to-[#0f1318] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center gap-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">Let's Build Together</span>
-            <h2 className="text-3xl md:text-5xl font-black text-white mt-3 leading-tight">
-              Have a project in mind?<br />
-              <span className="gradient-text">Let's talk.</span>
-            </h2>
-            <p className="text-slate-400 text-sm mt-4 max-w-md mx-auto">
-              I'm currently open to full-time roles and freelance projects. Drop me a message and I'll respond within 24 hours.
-            </p>
-          </motion.div>
+    <section className="bg-[#020617] py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-          <motion.a
-            href="mailto:babul@example.com"
-            initial={{ opacity: 0, y: 10 }}
+          {/* বাম দিক: টাইপোগ্রাফি ও সিম্পল টেক্সট */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(244,63,94,0.5)' }}
-            className="px-8 py-4 rounded-2xl font-bold text-base bg-gradient-to-r from-rose-500 to-orange-500 text-white shadow-glow-coral transition-all inline-flex items-center gap-2"
+            className="space-y-12"
           >
-            <Mail size={18} />
-            babul@example.com
-          </motion.a>
-        </div>
-      </div>
-
-      {/* Footer bottom */}
-      <div className="bg-[#060809] py-8">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Logo + copyright */}
-            <div className="flex items-center gap-4">
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-[#090c0f] font-bold text-sm shadow-glow-sm">
-                BH
-              </span>
-              <p className="text-slate-500 text-xs">
-                © 2026{' '}
-                <span className="text-slate-300 font-semibold">Babul Hossan</span>
-                {' '}— Built with{' '}
-                <Heart size={10} className="inline text-rose-400 fill-rose-400" />
-                {' '}& Next.js
+            <div>
+              <h2 className="text-6xl md:text-7xl font-[1000] text-white leading-[0.9] tracking-tighter">
+                Let&apos;s <br />
+                <span className="text-emerald-500">Connect.</span>
+              </h2>
+              {/* একদম সিম্পল ইংলিশ */}
+              <p className="mt-8 text-slate-400 text-lg font-medium leading-relaxed max-w-sm">
+                Ready to bring your ideas to life. Let&apos;s build something great together.
               </p>
             </div>
 
-            {/* Nav links */}
-            <div className="hidden md:flex items-center gap-6">
-              {footerLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-xs text-slate-500 hover:text-slate-200 transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+            {/* কন্টাক্ট ইনফো কার্ড */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-5 p-5 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/20 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Email</p>
+                  <p className="text-white font-bold text-base">babulhossan.info@gmail.com</p>
+                </div>
+              </div>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-2">
-              {socials.map(({ Icon, href, label }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target={label !== 'Email' ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  whileHover={{ scale: 1.15, boxShadow: '0 0 20px rgba(16,185,129,0.6)' }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 hover:bg-emerald-500/20 transition-all"
-                >
-                  <Icon size={15} />
-                </motion.a>
-              ))}
+              <div className="flex items-center gap-5 p-5 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/20 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Location</p>
+                  <p className="text-white font-bold text-base">Banani, Dhaka, Bangladesh</p>
+                </div>
+              </div>
             </div>
+          </motion.div>
+
+          {/* ডান দিক: মডার্ন গ্লাস ফর্ম */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="p-8 md:p-12 rounded-[3rem] bg-white/[0.01] border border-white/10 backdrop-blur-xl shadow-2xl"
+          >
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-mono text-emerald-500 uppercase tracking-[0.3em] ml-1">Full Name</label>
+                  <input type="text" placeholder="MD Babul Hossan" className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-emerald-500/50 transition-all placeholder:text-slate-700" />
+                </div>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-mono text-emerald-500 uppercase tracking-[0.3em] ml-1">Email Address</label>
+                  <input type="email" placeholder="example@mail.com" className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-emerald-500/50 transition-all placeholder:text-slate-700" />
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <label className="text-[10px] font-mono text-emerald-500 uppercase tracking-[0.3em] ml-1">Your Message</label>
+                <textarea rows={4} placeholder="Tell me about your project..." className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-emerald-500/50 transition-all resize-none placeholder:text-slate-700" />
+              </div>
+
+              <button className="w-full py-5 bg-emerald-500 hover:bg-emerald-400 text-[#020617] font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] uppercase tracking-widest text-sm">
+                Send Message
+                <Send size={18} strokeWidth={3} />
+              </button>
+
+              {/* সোশ্যাল লিঙ্কসমূহ */}
+              <div className="flex justify-center gap-5 pt-8 border-t border-white/5">
+                {socials.map(({ Icon, href, label }) => (
+                  <a key={label} href={href} target="_blank" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all">
+                    <Icon size={20} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* ফুটার কপিরাইট */}
+        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-slate-700 font-mono text-[10px] uppercase tracking-[0.5em]">© 2026 MD Babul Hossan</p>
+          <div className="flex gap-8 text-slate-700 font-mono text-[10px] uppercase tracking-[0.5em]">
+            <span className="hover:text-emerald-500 cursor-pointer transition-colors">Privacy</span>
+            <span className="hover:text-emerald-500 cursor-pointer transition-colors">Terms</span>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   )
 }
