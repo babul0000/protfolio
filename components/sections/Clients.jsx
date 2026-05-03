@@ -2,47 +2,60 @@
 
 import { motion } from 'framer-motion'
 
-const companies = [
-  'Google', 'Microsoft', 'Amazon', 'Meta', 'Netflix',
-  'Spotify', 'Stripe', 'Vercel', 'Figma', 'Notion',
+// আপনার বর্তমান Tech Stack যা আপনি ব্যবহার করছেন
+const techStack = [
+  'React', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind',
+  'JavaScript', 'MERN Stack', 'Express', 'HeroUI',
 ]
 
-// Simple SVG logo-style text logos
-function LogoItem({ name }) {
+function TechLogo({ name }) {
   return (
-    <div className="flex items-center justify-center px-8 py-3 opacity-30 hover:opacity-60 transition-opacity duration-300 cursor-default">
-      <span className="text-white font-black text-xl tracking-tight whitespace-nowrap">
+    <div className="flex items-center justify-center px-10 py-4 opacity-40 hover:opacity-100 hover:text-emerald-400 transition-all duration-300 cursor-default">
+      <span className="text-white font-black text-xl tracking-tighter whitespace-nowrap uppercase italic">
         {name}
       </span>
     </div>
   )
 }
 
-export default function Clients() {
+export default function TechMarquee() {
   return (
-    <section className="py-14 border-y border-white/5 overflow-hidden relative">
-      {/* fade edges */}
-      <div className="absolute left-0 inset-y-0 w-24 bg-gradient-to-r from-[#090c0f] to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 inset-y-0 w-24 bg-gradient-to-l from-[#090c0f] to-transparent z-10 pointer-events-none" />
+    // ব্যাকগ্রাউন্ড আপনার Hero সেকশনের সাথে মিল রেখে #020617 করা হয়েছে
+    <section className="py-14 bg-[#020617] border-y border-white/5 overflow-hidden relative">
+
+      {/* গ্লাস ইফেক্ট এডজ */}
+      <div className="absolute left-0 inset-y-0 w-32 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 inset-y-0 w-32 bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none" />
 
       <div className="mb-6 text-center">
-        <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
-          Trusted by teams at
+        <span className="text-[10px] font-mono text-emerald-500/60 uppercase tracking-[0.4em]">
+          Current Tech Ecosystem
         </span>
       </div>
 
-      <div className="flex">
+      {/* স্লাইডিং অ্যানিমেশন */}
+      <div className="flex select-none">
         <div className="flex animate-marquee">
-          {[...companies, ...companies].map((c, i) => (
-            <LogoItem key={`${c}-${i}`} name={c} />
+          {[...techStack, ...techStack].map((tech, i) => (
+            <TechLogo key={`${tech}-${i}`} name={tech} />
           ))}
         </div>
-        <div className="flex animate-marquee" aria-hidden>
-          {[...companies, ...companies].map((c, i) => (
-            <LogoItem key={`clone-${c}-${i}`} name={c} />
+        <div className="flex animate-marquee" aria-hidden="true">
+          {[...techStack, ...techStack].map((tech, i) => (
+            <TechLogo key={`clone-${tech}-${i}`} name={tech} />
           ))}
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 30s linear infinite;
+        }
+      `}</style>
     </section>
   )
 }
