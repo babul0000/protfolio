@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#footer' },
+  { label: 'Contact', href: '#contact' }, // এখানে অলরেডি #contact আছে
 ]
 
 export default function Navbar() {
@@ -33,18 +33,17 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? 'glass border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
             href="#home"
-            onClick={() => handleNav('#home')}
+            onClick={(e) => { e.preventDefault(); handleNav('#home'); }}
             className="flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.02 }}
           >
@@ -76,12 +75,12 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA */}
+          {/* CTA - এখানে #footer এর বদলে #contact করে দেওয়া হয়েছে */}
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            onClick={() => handleNav('#footer')}
+            onClick={() => handleNav('#contact')}
             className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 text-[#090c0f] hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95"
           >
             Hire Me
@@ -116,8 +115,9 @@ export default function Navbar() {
                   {link.label}
                 </button>
               ))}
+              {/* মোবাইল বাটনও #contact এ কাজ করবে */}
               <button
-                onClick={() => handleNav('#footer')}
+                onClick={() => handleNav('#contact')}
                 className="mt-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-emerald-600 text-[#090c0f]"
               >
                 Hire Me

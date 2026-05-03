@@ -11,7 +11,8 @@ const socials = [
 
 export default function ContactSection() {
   return (
-    <section className="bg-[#020617] py-24 overflow-hidden">
+    // py-5 থেকে বাড়িয়ে py-24 করা হয়েছে এবং id="contact" নিশ্চিত করা হয়েছে
+    <section id="contact" className="bg-[#020617] py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
@@ -27,7 +28,6 @@ export default function ContactSection() {
                 Let&apos;s <br />
                 <span className="text-emerald-500">Connect.</span>
               </h2>
-              {/* একদম সিম্পল ইংলিশ */}
               <p className="mt-8 text-slate-400 text-lg font-medium leading-relaxed max-w-sm">
                 Ready to bring your ideas to life. Let&apos;s build something great together.
               </p>
@@ -64,7 +64,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="p-8 md:p-12 rounded-[3rem] bg-white/[0.01] border border-white/10 backdrop-blur-xl shadow-2xl"
           >
-            <div className="space-y-8">
+            <form className="space-y-8"> {/* ফর্ম ট্যাগ যোগ করা ভালো */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className="text-[10px] font-mono text-emerald-500 uppercase tracking-[0.3em] ml-1">Full Name</label>
@@ -81,7 +81,7 @@ export default function ContactSection() {
                 <textarea rows={4} placeholder="Tell me about your project..." className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-4 text-white text-sm outline-none focus:border-emerald-500/50 transition-all resize-none placeholder:text-slate-700" />
               </div>
 
-              <button className="w-full py-5 bg-emerald-500 hover:bg-emerald-400 text-[#020617] font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] uppercase tracking-widest text-sm">
+              <button type="submit" className="w-full py-5 bg-emerald-500 hover:bg-emerald-400 text-[#020617] font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] uppercase tracking-widest text-sm">
                 Send Message
                 <Send size={18} strokeWidth={3} />
               </button>
@@ -89,14 +89,13 @@ export default function ContactSection() {
               {/* সোশ্যাল লিঙ্কসমূহ */}
               <div className="flex justify-center gap-5 pt-8 border-t border-white/5">
                 {socials.map(({ Icon, href, label }) => (
-                  <a key={label} href={href} target="_blank" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all">
+                  <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all">
                     <Icon size={20} />
                   </a>
                 ))}
               </div>
-            </div>
+            </form>
           </motion.div>
-
         </div>
 
         {/* ফুটার কপিরাইট */}
