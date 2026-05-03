@@ -4,8 +4,8 @@ import { motion } from 'framer-motion'
 import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react'
 
 const socials = [
-  { Icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { Icon: Github, href: 'https://github.com/babul0000', label: 'GitHub' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/in/babul-hossan-09932837a/', label: 'LinkedIn' },
   { Icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
   { Icon: Mail, href: 'babulhossan.info@gmail.com', label: 'Email' },
 ]
