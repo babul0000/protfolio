@@ -32,12 +32,16 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Clients />
-        <About />
         <Skills />
-        <Experience />
-        <Education />
-        <Projects />
         <Process />
+        <Projects />
+        <Experience />
+        <About />
+
+
+        {/* <Education /> */}
+
+
         <Footer />
       </div>
     </main>

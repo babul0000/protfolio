@@ -4,36 +4,28 @@ import { motion } from 'framer-motion'
 import { Briefcase, Github, ExternalLink } from 'lucide-react'
 
 const experience = [
+
   {
-    title: 'Frontend Developer - Tiles Galary',
-    org: 'Project Work',
-    period: '2025',
-    desc: 'Developed a fully functional tiles gallery application. Implemented responsive design, interactive UI, and smooth navigation to showcase tile products effectively.',
-    tags: ['Next.js', 'Tailwind CSS'],
-    liveLink: 'https://tiles-galary-a-8.vercel.app/',
-    repoLink: 'https://github.com/babul0000/tiles-galary-a-8',
-  },
-  {
-    title: 'Frontend Developer (Self-Learning Journey)',
-    org: 'Personal Projects',
+    title: 'Mern Stack Developer (Programming Hero Level 1 + Self Learning)',
+    org: 'Programming Hero & Personal Projects',
     period: '2025 — Present',
-    desc: 'Building modern web applications using React, Next.js, and Tailwind CSS. Focused on UI/UX, responsive design, and performance optimization while working on real-world portfolio projects.',
-    tags: ['React', 'Next.js', 'Tailwind'],
+    desc: 'Currently learning full stack web development through Programming Hero Level 1 course while building real-world projects. Working with frontend and backend technologies including React, Next.js, Node.js, Express.js, and MongoDB. Focused on UI/UX, API development, authentication, and performance optimization.',
+    tags: ['JavaScript', 'React', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
   },
   {
     title: 'Sample Technician',
-    org: 'Garments Industry',
+    org: 'Buying House (Garments Industry)',
     period: '2018 — Present',
-    desc: '8+ years experience in garments sector. Developed strong problem-solving skills, attention to detail, and workflow management which now helps in software development.',
-    tags: ['Quality Control', 'Problem Solving', 'Discipline'],
+    desc: '8 years of experience in the garments industry, including 5 years in production units and 3 years in a buying house. Currently handling sample development, quality control, and coordination between buyers and production teams. Strong focus on meeting buyer requirements, ensuring product quality, and maintaining smooth workflow communication.',
+    tags: ['Communication', 'Buyer Requirement Analysis', 'Problem Solving', 'Attention to Detail', 'Workflow Management', 'Understanding Requirements'],
   },
 ]
 
 export default function Experience() {
   return (
     <section id="experience" className="section-padding">
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-5 lg:px-7">
+
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +53,7 @@ export default function Experience() {
             >
               {/* background glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-500" />
-              
+
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4 relative z-10">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
@@ -76,11 +68,11 @@ export default function Experience() {
                   {item.period}
                 </span>
               </div>
-              
+
               <p className="text-slate-400 leading-relaxed text-sm md:text-base mb-6 relative z-10">
                 {item.desc}
               </p>
-              
+
               <div className="flex flex-wrap gap-2 relative z-10 mt-auto">
                 {item.tags.map(tag => (
                   <span key={tag} className="px-3 py-1 rounded-full glass border border-white/10 text-slate-300 text-xs">

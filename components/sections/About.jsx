@@ -1,24 +1,42 @@
 'use client'
 
 import Image from 'next/image'
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import myImg from '@/app/assets/my.png'
 
+/* -----------------------------
+   Static Data (outside render)
+------------------------------*/
+const INFO_ITEMS = [
+  // { label: 'Location', value: 'Dhaka, BD' },
+  { label: 'Experience', value: '8+ Years' },
+  { label: 'Focus', value: 'Frontend Dev' },
+  { label: 'Status', value: 'Open to Work' },
+]
 
+/* -----------------------------
+   Animation Variants
+------------------------------*/
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+}
 
 export default function About() {
-  const sectionRef = useRef(null)
-
   return (
-    <section id="about" ref={sectionRef} className="section-padding">
+    <section id="about" className="section-padding">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
           className="text-center mb-16"
         >
           <span className="text-xs font-mono text-emerald-400 uppercase tracking-widest">
@@ -32,12 +50,13 @@ export default function About() {
 
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* PROFILE CARD */}
+          {/* CARD */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass rounded-3xl p-8 border border-white/8 flex flex-col gap-6"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="glass rounded-3xl p-8 border border-white/10 flex flex-col gap-6"
           >
 
             {/* PROFILE */}
@@ -46,12 +65,17 @@ export default function About() {
                 <Image
                   src={myImg}
                   alt="Babul Hossan"
-                  className="object-cover w-full h-full"
+                  width={64}
+                  height={64}
+                  className="object-cover"
+                  priority
                 />
               </div>
 
               <div>
-                <h3 className="text-white font-bold text-xl">Babul Hossan</h3>
+                <h3 className="text-white font-bold text-xl">
+                  Babul Hossan
+                </h3>
                 <p className="text-emerald-400 text-sm font-mono mt-1">
                   Frontend Developer → Future Full Stack
                 </p>
@@ -61,43 +85,36 @@ export default function About() {
             {/* DESCRIPTION */}
             <div className="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base">
               <p>
-                I started my career as a{" "}
+                I started my career as a{' '}
                 <span className="text-white font-semibold">
                   Sample Technician
-                </span>{" "}
+                </span>{' '}
                 in the garments industry with 8+ years of experience.
               </p>
 
               <p>
-                Now I build modern web applications using{" "}
+                Now I build modern web applications using{' '}
                 <span className="text-white font-semibold">
                   React, Next.js, and Node.js
-                </span>
-                . My goal is to become a Full Stack Developer and work globally.
+                </span>.
+                My goal is to become a Full Stack Developer and work globally.
               </p>
             </div>
 
             {/* INFO GRID */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-white/5">
-              {[
-                { label: 'Location', value: 'Dhaka, BD' },
-                { label: 'Experience', value: '8+ Years' },
-                { label: 'Focus', value: 'Frontend Dev' },
-                { label: 'Status', value: 'Open to Work' },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex flex-col gap-1"
-                >
+              {INFO_ITEMS.map(({ label, value }) => (
+                <div key={label}>
                   <p className="text-[10px] text-slate-500 uppercase font-mono">
-                    {item.label}
+                    {label}
                   </p>
                   <p className="text-white text-sm font-semibold">
-                    {item.value}
+                    {value}
                   </p>
                 </div>
               ))}
             </div>
+
           </motion.div>
         </div>
       </div>

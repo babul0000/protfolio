@@ -8,8 +8,19 @@ import pixgenImg from '@/app/assets/pixgen.png'
 import dragonImg from '@/app/assets/dragon-news.png'
 import digitoolsImg from '@/app/assets/digitools.png'
 import issueTrackerImg from '@/app/assets/issue-tracker.png'
-
+import wanderImg from '@/app/assets/wanderImg.png'
 const projects = [
+  {
+    title: 'WanderLust',
+    desc: 'A full-stack travel accommodation platform inspired by Airbnb. Built with authentication, property listings, and CRUD features for users to explore and manage places easily.',
+    tags: ['Next.js', 'Tailwind CSS', 'BetterAuth', 'Node.js', 'Express.js', 'MongoDB'],
+    color: '#6366f1',
+    emoji: '🌍',
+    gradient: 'from-indigo-500/10 to-blue-500/5',
+    image: wanderImg,
+    liveLink: 'https://wander-lust-phi-lyart.vercel.app/',
+    repoLink: 'https://github.com/babul0000/wander-lust',
+  },
   {
     title: 'Tiles Galary',
     desc: 'Developed a fully functional tiles gallery application. Implemented responsive design, interactive UI, and smooth navigation to showcase tile products effectively.',
@@ -66,7 +77,13 @@ const projects = [
     repoLink: 'https://github.com/babul0000/assingment-5--Issues-Tracker',
   },
 
+
+
+
+
 ]
+
+
 
 function ProjectCard({ project, index }) {
   return (

@@ -11,10 +11,10 @@ const skillCategories = [
     bg: "bg-blue-500/5",
     border: "border-blue-500/20",
     skills: [
-      { name: "React", level: 80, icon: "⚛️" },
-      { name: "Next.js", level: 70, icon: "▲" },
-      { name: "Tailwind", level: 90, icon: "🎨" },
-
+      { name: "JavaScript", icon: "🟨" },
+      { name: "React", icon: "⚛️" },
+      { name: "Next.js", icon: "▲" },
+      { name: "Tailwind CSS", icon: "🎨" },
     ]
   },
   {
@@ -24,20 +24,34 @@ const skillCategories = [
     bg: "bg-emerald-500/5",
     border: "border-emerald-500/20",
     skills: [
-      { name: "Node.js", level: 68, icon: "🟢" },
-      { name: "REST APIs", level: 70, icon: "🔗" },
+      { name: "Node.js", icon: "🟢" },
+      { name: "Express.js", icon: "🚀" },
+      { name: "REST APIs", icon: "🔗" },
     ]
   },
   {
-    title: "Database & Tools",
+    title: "Database",
     icon: "🗄️",
     gradient: "from-purple-400 to-pink-400",
     bg: "bg-purple-500/5",
     border: "border-purple-500/20",
     skills: [
-      { name: "MongoDB", level: 55, icon: "🍃" },
-      { name: "Git", level: 85, icon: "📦" },
-      { name: "Figma", level: 75, icon: "🎯" },
+      { name: "MongoDB", icon: "🍃" },
+      { name: "Mongoose", icon: "🐍" },
+    ]
+  },
+  {
+    title: "Tools & DevOps",
+    icon: "🛠️",
+    gradient: "from-orange-400 to-red-400",
+    bg: "bg-orange-500/5",
+    border: "border-orange-500/20",
+    skills: [
+      { name: "Git", icon: "📦" },
+      { name: "GitHub", icon: "🐙" },
+      { name: "Vercel", icon: "▲" },
+      { name: "Netlify", icon: "🌐" },
+      { name: "Figma", icon: "🎯" },
     ]
   }
 ]
@@ -66,7 +80,7 @@ export default function Skills() {
         </motion.div>
 
         {/* SKILLS GRID */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           {skillCategories.map((category, catIdx) => (
             <motion.div
               key={category.title}
@@ -88,29 +102,16 @@ export default function Skills() {
 
               {/* Skills Grid */}
               <div className="grid grid-cols-2 gap-3">
-                {category.skills.map((skill, i) => (
+                {category.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
                     whileHover={{ scale: 1.02 }}
-                    className="glass border border-white/5 rounded-xl p-3 flex flex-col gap-2 hover:border-white/10 transition-colors"
+                    className="glass border border-white/5 rounded-xl p-3 flex items-center gap-2 hover:border-white/10 transition-colors"
                   >
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm">{skill.icon}</span>
-                        <span className="text-xs font-semibold text-slate-200">{skill.name}</span>
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-mono">{skill.level}%</span>
-                    </div>
-                    {/* Mini progress bar */}
-                    <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: i * 0.1 }}
-                        className={`h-full rounded-full bg-gradient-to-r ${category.gradient}`}
-                      />
-                    </div>
+                    <span className="text-sm">{skill.icon}</span>
+                    <span className="text-xs font-semibold text-slate-200">
+                      {skill.name}
+                    </span>
                   </motion.div>
                 ))}
               </div>
